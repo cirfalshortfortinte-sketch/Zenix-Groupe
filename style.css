@@ -1,99 +1,203 @@
-:root{
-  --bg:#0f0f10;
-  --card:#121214;
-  --accent:#ff2e6f;
-  --muted:#bdbdbd;
-  --glass: rgba(255,255,255,0.03);
+:root {
+  --bg: #0f0f10;
+  --card: #121214;
+  --accent: #ff2e6f;
+  --muted: #bdbdbd;
+  --glass: rgba(255, 255, 255, 0.03);
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: var(--bg);
+  background: var(--bg) !important; /* Force le fond sombre malgré Bootstrap */
   color: #fff;
-  -webkit-font-smoothing:antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
-.top{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  padding:22px;
-  background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
-  border-bottom: 1px solid rgba(255,255,255,0.03);
+/* Header */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-#logo{
-  width:96px;
-  height:96px;
-  object-fit:cover;
-  border-radius:50%;
-  box-shadow: 0 6px 18px rgba(255,46,111,0.08), 0 0 0 6px rgba(255,46,111,0.04) inset;
-  background: radial-gradient(circle at 20% 20%, rgba(255,46,111,0.08), transparent);
+#logo {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(255, 46, 111, 0.08), 0 0 0 6px rgba(255, 46, 111, 0.04) inset;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 46, 111, 0.08), transparent);
 }
 
-.title h1{margin:0;font-size:20px;letter-spacing:1px}
-.subtitle{margin:2px 0 0;color:var(--muted);font-size:13px}
+.title h1 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
 
-.container{
-  display:grid;
+.subtitle {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Container principal */
+.container {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap:18px;
-  padding:22px;
-  max-width:1100px;
-  margin:0 auto;
+  gap: 18px;
+  padding: 22px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.card{
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  padding:16px;
-  border-radius:12px;
-  border: 1px solid rgba(255,255,255,0.03);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+/* Cartes (surcharge Bootstrap pour thème sombre) */
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01)) !important;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+  color: #fff !important; /* Texte blanc */
 }
 
-.status-card h2, .bots-card h2, .help-card h2{margin-top:0}
-
-#api-status{
-  margin:10px 0;
-  font-weight:600;
-  color:var(--muted);
+.card-header {
+  background: var(--card) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+  color: #fff !important;
 }
 
-.btn{
-  background: linear-gradient(90deg, var(--accent), #c01f5b);
-  color:#fff;
-  border:0;
-  padding:10px 14px;
-  border-radius:10px;
-  cursor:pointer;
-  margin-right:8px;
-  font-weight:600;
+.card-body {
+  background: transparent !important;
 }
 
-.btn.danger{
-  background: transparent;
-  color:#ff8f9f;
-  border:1px solid rgba(255,46,111,0.15);
+/* Statut API */
+#api-status {
+  margin: 10px 0;
+  font-weight: 600;
+  color: var(--muted);
 }
 
-.actions{margin-top:12px}
-
-.output{
-  margin-top:12px;
-  background:var(--glass);
-  padding:10px;
-  border-radius:8px;
-  color:var(--muted);
-  max-height:160px;
-  overflow:auto;
-  font-size:13px;
+/* Boutons (surcharge Bootstrap) */
+.btn {
+  background: linear-gradient(90deg, var(--accent), #c01f5b) !important;
+  color: #fff !important;
+  border: 0 !important;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease; /* Ajout de transition pour fluidité */
 }
 
-.footer{
-  text-align:center;
-  padding:14px;
-  color:var(--muted);
-  font-size:13px;
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 46, 111, 0.3);
+}
+
+.btn.danger {
+  background: transparent !important;
+  color: #ff8f9f !important;
+  border: 1px solid rgba(255, 46, 111, 0.15) !important;
+}
+
+.btn.danger:hover {
+  background: rgba(255, 46, 111, 0.1) !important;
+}
+
+/* Actions */
+.actions {
+  margin-top: 12px;
+}
+
+/* Output */
+.output {
+  margin-top: 12px;
+  background: var(--glass) !important;
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--muted);
+  max-height: 160px;
+  overflow: auto;
+  font-size: 13px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  background: var(--bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Modals (surcharge Bootstrap pour thème sombre) */
+.modal-content {
+  background: var(--card) !important;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  color: #fff !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+.modal-body {
+  background: transparent !important;
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Éditeur de code (CodeMirror) */
+.CodeMirror {
+  background: var(--glass) !important;
+  color: #fff !important;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.CodeMirror-gutters {
+  background: var(--card) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Terminal (xterm.js) */
+#terminal {
+  background: var(--bg) !important;
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+#terminal .xterm-viewport {
+  background: var(--bg) !important;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+    gap: 12px;
+  }
+  .top {
+    padding: 12px;
+    flex-direction: column;
+    text-align: center;
+  }
+  #logo {
+    width: 64px;
+    height: 64px;
+  }
 }
