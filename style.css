@@ -1,0 +1,99 @@
+:root{
+  --bg:#0f0f10;
+  --card:#121214;
+  --accent:#ff2e6f;
+  --muted:#bdbdbd;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #fff;
+  -webkit-font-smoothing:antialiased;
+}
+
+.top{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:22px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+#logo{
+  width:96px;
+  height:96px;
+  object-fit:cover;
+  border-radius:50%;
+  box-shadow: 0 6px 18px rgba(255,46,111,0.08), 0 0 0 6px rgba(255,46,111,0.04) inset;
+  background: radial-gradient(circle at 20% 20%, rgba(255,46,111,0.08), transparent);
+}
+
+.title h1{margin:0;font-size:20px;letter-spacing:1px}
+.subtitle{margin:2px 0 0;color:var(--muted);font-size:13px}
+
+.container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap:18px;
+  padding:22px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:16px;
+  border-radius:12px;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+.status-card h2, .bots-card h2, .help-card h2{margin-top:0}
+
+#api-status{
+  margin:10px 0;
+  font-weight:600;
+  color:var(--muted);
+}
+
+.btn{
+  background: linear-gradient(90deg, var(--accent), #c01f5b);
+  color:#fff;
+  border:0;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  margin-right:8px;
+  font-weight:600;
+}
+
+.btn.danger{
+  background: transparent;
+  color:#ff8f9f;
+  border:1px solid rgba(255,46,111,0.15);
+}
+
+.actions{margin-top:12px}
+
+.output{
+  margin-top:12px;
+  background:var(--glass);
+  padding:10px;
+  border-radius:8px;
+  color:var(--muted);
+  max-height:160px;
+  overflow:auto;
+  font-size:13px;
+}
+
+.footer{
+  text-align:center;
+  padding:14px;
+  color:var(--muted);
+  font-size:13px;
+}

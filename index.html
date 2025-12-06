@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zenix Panel — Dashboard simple</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <img id="logo" src="logo.png" alt="Zenix Logo" />
+    <div class="title">
+      <h1>Zenix™ Groupe</h1>
+      <p class="subtitle">Panel de gestion minimal</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card status-card">
+      <h2>Statut API</h2>
+      <div id="api-status">Connexion…</div>
+      <button id="refresh">Rafraîchir</button>
+    </section>
+
+    <section class="card bots-card">
+      <h2>Contrôle des bots</h2>
+      <label for="bot-select">Choisir un bot</label>
+      <select id="bot-select">
+        <option value="bot1">bot1</option>
+        <option value="bot2">bot2</option>
+      </select>
+
+      <div class="actions">
+        <button id="start-btn" class="btn">Démarrer</button>
+        <button id="restart-btn" class="btn">Redémarrer</button>
+        <button id="stop-btn" class="btn danger">Arrêter</button>
+      </div>
+
+      <pre id="response" class="output"></pre>
+    </section>
+
+    <section class="card help-card">
+      <h2>Infos / Sécurité</h2>
+      <ul>
+        <li>API publique (ngrok) : <code id="api-url"></code></li>
+        <li>Clé API : utilisation dans l'entête <code>x-api-key</code></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Designed for Zenix · Simple Dashboard</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
